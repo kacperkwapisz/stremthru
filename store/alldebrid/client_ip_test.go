@@ -1,3 +1,5 @@
+
+// Package alldebrid verifies client IP forwarding behavior.
 package alldebrid
 
 import (

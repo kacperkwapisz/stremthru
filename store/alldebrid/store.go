@@ -61,7 +61,9 @@ func withClientIP(ctx request.Ctx, clientIP string) request.Ctx {
 
 	query := url.Values{}
 	if ctx.Query != nil {
-		query = ctx.Query.Clone()
+		for key, values := range *ctx.Query {
+			query[key] = append([]string(nil), values...)
+		}
 	}
 	query.Set("ip", clientIP)
 	ctx.Query = &query
